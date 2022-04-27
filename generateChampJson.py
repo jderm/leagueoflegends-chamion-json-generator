@@ -11,7 +11,8 @@ def printToJson(path):
     for x in arr:
         name = clearName(x)
         jsonFile.write("\t""{" + "\n")
-        jsonFile.write("\t\t"'"id"' + ":" + '"' + str(cnt-1) + '"' + "," + "\n")
+        jsonFile.write("\t\t"'"id"' + ":" + '"' +
+                       str(cnt-1) + '"' + "," + "\n")
         jsonFile.write("\t\t"'"name"' + ":" + '"' + name + '"' + "," + "\n")
         jsonFile.write("\t\t"'"icon"' + ":" + '"' +
                        path + "/" + x + '"' + "\n")
