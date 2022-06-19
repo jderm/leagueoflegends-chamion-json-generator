@@ -11,11 +11,12 @@ def printToJson(path):
     for x in arr:
         name = clearName(x)
         jsonFile.write("\t""{" + "\n")
-        jsonFile.write("\t\t"'"id"' + ":" + '"' +
-                       str(cnt-1) + '"' + "," + "\n")
-        jsonFile.write("\t\t"'"name"' + ":" + '"' + name + '"' + "," + "\n")
-        jsonFile.write("\t\t"'"icon"' + ":" + '"' +
-                       path + "/" + x + '"' + "\n")
+        jsonFile.write(genTextLine('"id"', str(cnt-1), False))
+        jsonFile.write(genTextLine('"name"', '"' + name + '"', False))
+        jsonFile.write(genTextLine('"icon"', '"' + "/" +
+                       path + "/" + x + '"', True))
+        # jsonFile.write(genTextLine('"banned"', 'false', False))
+        # jsonFile.write(genTextLine('"picked"', 'false', True))
         if cnt == len(arr):
             jsonFile.write("\t""}" + "\n")
         else:
@@ -54,6 +55,20 @@ def printNamesOnly(path):
         txtFile.write(name + "\n")
 
     txtFile.close()
+
+
+def genTextLine(valName, value, lastLine):
+    line = ""
+    doubleTabSpace = "\t\t"
+    laneBreak = "\n"
+    line = doubleTabSpace + valName + ":" + value
+
+    if lastLine == False:
+        line += ","
+
+    line += laneBreak
+
+    return line
 
 
 def clearName(fullName):
