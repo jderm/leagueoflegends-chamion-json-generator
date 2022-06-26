@@ -13,7 +13,7 @@ def printToJson(path):
         jsonFile.write("\t""{" + "\n")
         jsonFile.write(genTextLine('"id"', str(cnt-1), False))
         jsonFile.write(genTextLine('"name"', '"' + name + '"', False))
-        jsonFile.write(genTextLine('"icon"', '"' + "/" +
+        jsonFile.write(genTextLine('"icon"', '"' + 
                        path + "/" + x + '"', True))
         # jsonFile.write(genTextLine('"banned"', 'false', False))
         # jsonFile.write(genTextLine('"picked"', 'false', True))
